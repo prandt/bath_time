@@ -24,7 +24,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
 
   void _onStart(TimerStart event, Emitter<TimerState> emit)  {
     _timerSubscription?.cancel();
-    _timerSubscription = Stream.periodic(const Duration(seconds: 1), (x) => x)
+    _timerSubscription = Stream.periodic(const Duration(milliseconds: 10), (x) => x * 10)
         .listen((time) => add(TimerTicked(time)));
   }
 
