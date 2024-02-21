@@ -58,25 +58,9 @@ class TimerText extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TimerBloc, TimerState>(
       builder: (context, state) {
-        return Text(millisecondsToTime(state.time), style: const TextStyle(fontSize: 60));
+        return Text(state.toString(), style: const TextStyle(fontSize: 60));
       }
     );
-  }
-
-  String millisecondsToTime(int milliseconds) {
-    int seconds = (milliseconds / 1000).truncate();
-    int hours = (seconds / 3600).truncate();
-    seconds = seconds % 3600;
-    int minutes = (seconds / 60).truncate();
-    seconds = seconds % 60;
-    milliseconds = milliseconds % 1000;
-
-
-    String minutesStr = minutes.toString().padLeft(2, '0');
-    String secondsStr = seconds.toString().padLeft(2, '0');
-    String millisecondsStr = milliseconds.toString().padLeft(3, '0');
-
-    return '$minutesStr:$secondsStr,$millisecondsStr';
   }
 }
 

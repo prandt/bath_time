@@ -6,8 +6,21 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: TimerView()
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Bath Time'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.login_outlined),
+            onPressed: () {
+              Navigator.pushNamed(context, '/login');
+            },
+          )],
+      ),
+      body: Container(
+          padding: const EdgeInsets.all(20),
+          child: const TimerView()
+      )
     );
   }
 }

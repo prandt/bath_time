@@ -1,4 +1,5 @@
 import 'package:bath_time/src/ui/views/home_view.dart';
+import 'package:bath_time/src/ui/views/login_view.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -6,9 +7,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeView(),
+        '/login': (context) => const LoginView(),
+      },
     );
   }
 }
